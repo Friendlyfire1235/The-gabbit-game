@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s685e"]
-size = Vector2(10, 10)
+size = Vector2(8, 10)
 
 [node name="enemy" type="Node2D"]
 
