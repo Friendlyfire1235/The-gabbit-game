@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bd0vmtta7hihi"]
+[gd_scene load_steps=9 format=3 uid="uid://bd0vmtta7hihi"]
 
 [ext_resource type="PackedScene" uid="uid://bvm32k0q7g4v0" path="res://Scene/player.tscn" id="1_mhtsl"]
 [ext_resource type="Texture2D" uid="uid://dxipe01sulj0f" path="res://Asset/brackeys_platformer_assets/sprites/world_tileset.png" id="2_w51g1"]
 [ext_resource type="PackedScene" uid="uid://bmcgh7oie86sw" path="res://Scene/killzone.tscn" id="3_4jv7b"]
 [ext_resource type="PackedScene" uid="uid://y62b2uujioln" path="res://Scene/enemy.tscn" id="4_03iqk"]
+[ext_resource type="PackedScene" uid="uid://1b0unmsah5oe" path="res://Scene/pause.tscn" id="5_ihreq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4jv7b"]
 texture = ExtResource("2_w51g1")
@@ -222,3 +223,12 @@ position = Vector2(1, 82)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
 position = Vector2(0, 142)
 shape = SubResource("WorldBoundaryShape2D_03iqk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Pause" parent="CanvasLayer" instance=ExtResource("5_ihreq")]
+offset_left = 9.0
+offset_top = -41.0
+offset_right = 9.0
+offset_bottom = -41.0
