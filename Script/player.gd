@@ -34,7 +34,6 @@ func _physics_process(delta: float) -> void:
 	#play animations
 	if direction == 0 :
 		animated_sprite.play("Idle")
-	
 	else:
 		animated_sprite.play("Run")
 	
