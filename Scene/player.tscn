@@ -255,10 +255,10 @@ position = Vector2(-1, 3)
 shape = SubResource("CircleShape2D_p6qlh")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = -221.0
-offset_top = -142.0
-offset_right = -165.0
-offset_bottom = -102.0
+offset_left = -209.0
+offset_top = -140.0
+offset_right = -153.0
+offset_bottom = -100.0
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
 custom_minimum_size = Vector2(16.785, 0)

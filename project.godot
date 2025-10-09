@@ -29,7 +29,7 @@ window/size/viewport_height=1080
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/maaacks_menus_template/plugin.cfg")
+enabled=PackedStringArray("res://addons/health_hitbox_hurtbox/plugin.cfg", "res://addons/maaacks_menus_template/plugin.cfg")
 
 [gui]
 

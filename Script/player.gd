@@ -30,6 +30,8 @@ func take_damage():
 func update_heart_display():
 	for i in range(hearts_list.size()):
 		hearts_list[i].visible = i < health
+	
+
 
 func death():
 	if not alive:
