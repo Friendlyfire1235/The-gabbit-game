@@ -1,7 +1,8 @@
-[gd_scene load_steps=34 format=3 uid="uid://bvm32k0q7g4v0"]
+[gd_scene load_steps=35 format=3 uid="uid://bvm32k0q7g4v0"]
 
 [ext_resource type="Texture2D" uid="uid://bhklkbyrwwavx" path="res://Asset/brackeys_platformer_assets/sprites/knight.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cg2gpi4x5wwps" path="res://Script/player.gd" id="1_y8w33"]
+[ext_resource type="PackedScene" uid="uid://bwqpk8dblu667" path="res://Scene/health.tscn" id="3_xa75v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lhccw"]
 atlas = ExtResource("1_4flbx")
@@ -234,8 +235,8 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jxqw"]
-size = Vector2(10, 14)
+[sub_resource type="CircleShape2D" id="CircleShape2D_p6qlh"]
+radius = 5.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 z_index = 1
@@ -244,11 +245,15 @@ collision_mask = 2
 script = ExtResource("1_y8w33")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, -4)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"Jump"
+animation = &"Run"
 autoplay = "Idle"
-frame_progress = 0.071492605
+frame = 7
+frame_progress = 0.18292142
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
-shape = SubResource("RectangleShape2D_1jxqw")
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_p6qlh")
+
+[node name="Health" parent="." instance=ExtResource("3_xa75v")]

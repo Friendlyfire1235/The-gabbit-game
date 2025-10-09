@@ -1,5 +1,7 @@
 extends Control
 
+
+
 func resume():
 	get_tree().paused = false
 	$AnimationPlayer.play_backwards("Blur")
@@ -26,5 +28,5 @@ func _on_options_pressed() -> void:
 func _on_exit_pressed() -> void:
 	get_tree().quit()
 
-func _process(delta):
+func _process(_delta):
 	testesc()
