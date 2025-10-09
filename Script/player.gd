@@ -1,14 +1,19 @@
 extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 140
+const JUMP_VELOCITY = -300.0
 
-var respawn_point: Vector2
+var hearts_list : Array[TextureRect]
+var health = 3
 
 func _ready() -> void:
-	# Save the player's starting position as the default respawn point
-	respawn_point = global_position
+	var hearts_parent = $HBoxContainer
+	for child in hearts_parent.get_children():
+		hearts_list.append(child)
+	print(hearts_list)
+
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -47,7 +52,3 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 # Called by KillZone when the player dies
-func kill() -> void:
-	global_position = respawn_point
-	velocity = Vector2.ZERO
-	print("💀 Player hit KillZone — respawned instantly!")
