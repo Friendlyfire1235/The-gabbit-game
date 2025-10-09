@@ -247,13 +247,40 @@ script = ExtResource("1_y8w33")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -4)
 sprite_frames = SubResource("SpriteFrames_2hs0m")
-animation = &"Run"
+animation = &"Idle"
 autoplay = "Idle"
-frame = 7
-frame_progress = 0.18292142
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 3)
 shape = SubResource("CircleShape2D_p6qlh")
 
-[node name="Health" parent="." instance=ExtResource("3_xa75v")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+follow_viewport_scale = 0.001
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
+offset_left = -18.0
+offset_top = -31.0
+offset_right = 32.0
+offset_bottom = 9.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(16.785, 0)
+layout_mode = 2
+
+[node name="Health" parent="CanvasLayer/HBoxContainer/TextureRect" instance=ExtResource("3_xa75v")]
+position = Vector2(17, 15)
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(16.785, 0)
+layout_mode = 2
+
+[node name="Health" parent="CanvasLayer/HBoxContainer/TextureRect3" instance=ExtResource("3_xa75v")]
+position = Vector2(17, 15)
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/HBoxContainer"]
+custom_minimum_size = Vector2(16.785, 0)
+layout_mode = 2
+
+[node name="Health" parent="CanvasLayer/HBoxContainer/TextureRect4" instance=ExtResource("3_xa75v")]
+position = Vector2(17, 15)

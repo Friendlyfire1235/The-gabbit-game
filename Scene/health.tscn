@@ -1,6 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwqpk8dblu667"]
+[gd_scene load_steps=4 format=3 uid="uid://bwqpk8dblu667"]
 
-[ext_resource type="Script" uid="uid://bsfxctxmk2i7n" path="res://Script/node_2d.gd" id="1_pu4uw"]
+[ext_resource type="Texture2D" uid="uid://dywfwaytgkaal" path="res://Asset/hearts.png" id="1_pu4uw"]
 
-[node name="Health" type="Node2D"]
-script = ExtResource("1_pu4uw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8o7qy"]
+atlas = ExtResource("1_pu4uw")
+region = Rect2(0, 0, 17, 17)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jtuj0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8o7qy")
+}],
+"loop": true,
+"name": &"health",
+"speed": 5.0
+}]
+
+[node name="Heart" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_jtuj0")
+animation = &"health"
