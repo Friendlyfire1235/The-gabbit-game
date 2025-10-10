@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://bvm32k0q7g4v0"]
+[gd_scene load_steps=36 format=3 uid="uid://bvm32k0q7g4v0"]
 
 [ext_resource type="Texture2D" uid="uid://bhklkbyrwwavx" path="res://Asset/brackeys_platformer_assets/sprites/knight.png" id="1_4flbx"]
 [ext_resource type="Script" uid="uid://cg2gpi4x5wwps" path="res://Script/player.gd" id="1_y8w33"]
 [ext_resource type="PackedScene" uid="uid://bwqpk8dblu667" path="res://Scene/health.tscn" id="3_xa75v"]
+[ext_resource type="Script" uid="uid://cl2fpqt6neies" path="res://Script/hurtbox.gd" id="4_58ae2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lhccw"]
 atlas = ExtResource("1_4flbx")
@@ -280,3 +281,11 @@ layout_mode = 2
 
 [node name="Health" parent="HBoxContainer/TextureRect4" instance=ExtResource("3_xa75v")]
 position = Vector2(17, 15)
+
+[node name="hurtbox" type="Area2D" parent="."]
+script = ExtResource("4_58ae2")
+metadata/_custom_type_script = "uid://cl2fpqt6neies"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(-1, 3)
+shape = SubResource("CircleShape2D_p6qlh")

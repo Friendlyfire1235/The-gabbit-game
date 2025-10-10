@@ -20,9 +20,9 @@ func _ready() -> void:
 	# Add player to a group so KillZone can detect it
 	add_to_group("Player")
 
-func take_damage():
+func take_damage(damage: int = 1) -> void:
 	if health > 0:
-		health -= 1
+		health -= damage
 		update_heart_display()
 	if health <= 0:
 		death()
@@ -38,7 +38,8 @@ func death():
 		return  # Prevent multiple deaths
 	print("Player has died")
 	alive = false
-	await get_tree().create_timer(0.5).timeout
+	animated_sprite.play("Death")
+	await get_tree().create_timer(1).timeout
 	get_tree().reload_current_scene()
 
 
