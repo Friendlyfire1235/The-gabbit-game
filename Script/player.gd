@@ -47,7 +47,7 @@ func take_damage(damage: int = 1) -> void:
 		death()
 
 func flash_invincibility():
-	var flashes = 6
+	var flashes = 4 
 	for i in range(flashes):
 		animated_sprite.modulate = Color(1, 1, 1, 0.4)
 		await get_tree().create_timer(0.1).timeout
