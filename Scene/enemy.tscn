@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://y62b2uujioln"]
+[gd_scene load_steps=13 format=3 uid="uid://y62b2uujioln"]
 
 [ext_resource type="Script" uid="uid://b3kgopmlpy68y" path="res://Script/enemy.gd" id="1_s685e"]
+[ext_resource type="Script" uid="uid://1mwc3e7xoant" path="res://States/state_machine.gd" id="1_vmi60"]
 [ext_resource type="Texture2D" uid="uid://u7yo2ewxaxx6" path="res://Asset/brackeys_platformer_assets/sprites/slime_green.png" id="1_yww8s"]
 [ext_resource type="Script" uid="uid://dg18781s25ysi" path="res://Script/hitbox.gd" id="2_4jekx"]
-[ext_resource type="Script" uid="uid://1mwc3e7xoant" path="res://Script/state_machine.gd" id="4_n6qjc"]
-[ext_resource type="Script" uid="uid://dcjp3fvpd4xau" path="res://Script/Enemy_Idle.gd" id="5_vmi60"]
+[ext_resource type="Script" uid="uid://dcjp3fvpd4xau" path="res://States/Enemy_Idle.gd" id="4_hti8k"]
+[ext_resource type="Script" uid="uid://cmflxvhsaa0ux" path="res://States/Enemyfollow.gd" id="5_44hyy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4jekx"]
 atlas = ExtResource("1_yww8s")
@@ -46,7 +47,6 @@ animations = [{
 size = Vector2(10, 10)
 
 [node name="enemy" type="CharacterBody2D"]
-collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_s685e")
 
@@ -67,11 +67,16 @@ metadata/_custom_type_script = "uid://dg18781s25ysi"
 position = Vector2(0, 6)
 shape = SubResource("RectangleShape2D_s685e")
 
-[node name="State Machine" type="Node" parent="." node_paths=PackedStringArray("inital_state")]
-script = ExtResource("4_n6qjc")
-inital_state = NodePath("EnemyIdle")
+[node name="State machine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_vmi60")
+initial_state = NodePath("EnemyIdle")
 
-[node name="EnemyIdle" type="Node" parent="State Machine" node_paths=PackedStringArray("enemy")]
-script = ExtResource("5_vmi60")
+[node name="EnemyIdle" type="Node" parent="State machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("4_hti8k")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://dcjp3fvpd4xau"
+
+[node name="Enemyfollow" type="Node" parent="State machine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("5_44hyy")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://cmflxvhsaa0ux"
